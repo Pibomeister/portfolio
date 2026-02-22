@@ -9,6 +9,14 @@ const skills = [
   'GraphQL', 'tRPC', 'Tailwind CSS', 'Figma',
 ]
 
+const info = [
+  { label: 'Experience', value: '10+ Years' },
+  { label: 'Clients', value: '30+ Clients' },
+  { label: 'Languages', value: 'Spanish, English, German' },
+  { label: 'Location', value: 'Mexico City, MX' },
+  { label: 'Availability', value: 'Nearshore — North America & Europe' },
+]
+
 const ease = [0.25, 0.4, 0.25, 1] as [number, number, number, number]
 
 export function AboutSection() {
@@ -128,10 +136,36 @@ export function AboutSection() {
               </p>
             </motion.div>
 
+            {/* Personal info grid */}
             <motion.div
               initial={{ opacity: 0, y: 10 }}
               animate={isInView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.7, delay: 0.35, ease }}
+              className="grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-4 mb-10"
+            >
+              {info.map(({ label, value }) => (
+                <div key={label} className="flex flex-col gap-0.5">
+                  <span
+                    className="text-[11px] font-semibold tracking-[0.15em] uppercase"
+                    style={{ color: 'var(--color-accent)' }}
+                  >
+                    {label}
+                  </span>
+                  <span
+                    className="text-sm font-medium"
+                    style={{ color: 'var(--color-text-primary)' }}
+                  >
+                    {value}
+                  </span>
+                </div>
+              ))}
+            </motion.div>
+
+            {/* Skill chips */}
+            <motion.div
+              initial={{ opacity: 0, y: 10 }}
+              animate={isInView ? { opacity: 1, y: 0 } : {}}
+              transition={{ duration: 0.7, delay: 0.45, ease }}
             >
               <p
                 className="text-xs font-semibold tracking-[0.2em] uppercase mb-4"
