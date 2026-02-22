@@ -21,7 +21,7 @@ export const FILTERS: { id: TechFilter | 'all'; label: string }[] = [
 ]
 
 export const PROJECTS: Project[] = [
-  // --- Featured (4) ---
+  // --- Featured (6) ---
   {
     id: 'fluxkeep',
     name: 'Fluxkeep',
@@ -66,6 +66,29 @@ export const PROJECTS: Project[] = [
     images: [],
     featured: true,
     accentColor: 'linear-gradient(135deg, #1f1a10 0%, #1a1408 100%)',
+  },
+  {
+    id: 'rideflow-featured',
+    name: 'RideFlow',
+    description:
+      'React Native ride-sharing app with live driver tracking, surge pricing, and in-app payments.',
+    tech: ['react-native'],
+    techStack: ['React Native', 'Expo', 'Stripe', 'Socket.io', 'Node.js'],
+    images: [],
+    featured: true,
+    accentColor: 'linear-gradient(135deg, #1a1010 0%, #120808 100%)',
+  },
+  {
+    id: 'finledger-featured',
+    name: 'FinLedger',
+    description:
+      'Real-time financial dashboard for SMBs. Multi-currency, automated reconciliation, and AI-powered insights.',
+    tech: ['nextjs', 'react'],
+    techStack: ['Next.js', 'TypeScript', 'Supabase', 'OpenAI', 'Recharts'],
+    url: 'https://finledger.io',
+    images: [],
+    featured: true,
+    accentColor: 'linear-gradient(135deg, #101820 0%, #080f18 100%)',
   },
 
   // --- All Projects (8 more) ---
