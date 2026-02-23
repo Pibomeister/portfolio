@@ -1,7 +1,7 @@
 'use client'
 
-import { motion, useInView } from 'motion/react'
-import { useRef } from 'react'
+import { motion } from 'motion/react'
+import { WordReveal, SlideIn, FadeUp, ScaleIn, StaggerContainer, StaggerItem } from './scroll-reveal'
 
 const skills = [
   'TypeScript', 'React', 'Next.js', 'Node.js',
@@ -20,19 +20,19 @@ const info = [
 const ease = [0.25, 0.4, 0.25, 1] as [number, number, number, number]
 
 export function AboutSection() {
-  const ref = useRef<HTMLElement>(null)
-  const isInView = useInView(ref, { once: true, margin: '-15%' })
-
   return (
     <section
       id="about"
-      ref={ref}
       className="relative py-24 md:py-36 overflow-hidden"
       style={{ zIndex: 1 }}
     >
-      {/* Faint watermark */}
-      <div
+      {/* Watermark — drifts in from the right */}
+      <motion.div
         aria-hidden
+        initial={{ opacity: 0, x: 60 }}
+        whileInView={{ opacity: 1, x: 0 }}
+        viewport={{ once: true, margin: '-20%' }}
+        transition={{ duration: 1.6, ease }}
         className="absolute inset-0 flex items-center justify-end pr-8 pointer-events-none select-none"
       >
         <span
@@ -41,18 +41,13 @@ export function AboutSection() {
         >
           ABOUT
         </span>
-      </div>
+      </motion.div>
 
       <div className="relative z-10 max-w-7xl mx-auto px-8 md:px-16">
         <div className="grid grid-cols-1 lg:grid-cols-5 gap-16 lg:gap-24 items-center">
 
-          {/* LEFT: Visual card (40% = 2/5 cols) */}
-          <motion.div
-            initial={{ opacity: 0, x: -40 }}
-            animate={isInView ? { opacity: 1, x: 0 } : {}}
-            transition={{ duration: 0.9, ease }}
-            className="lg:col-span-2 relative"
-          >
+          {/* LEFT: Visual card */}
+          <SlideIn from="left" delay={0.1} duration={0.9} className="lg:col-span-2 relative">
             <div
               className="relative rounded-2xl overflow-hidden aspect-[3/4] max-w-sm mx-auto"
               style={{
@@ -61,90 +56,121 @@ export function AboutSection() {
               }}
             >
               <div className="absolute inset-0 flex flex-col items-center justify-center gap-4 p-8">
-                <div
-                  className="w-20 h-px"
+                <motion.div
+                  initial={{ scaleX: 0 }}
+                  whileInView={{ scaleX: 1 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.7, delay: 0.45, ease }}
+                  className="w-20 h-px origin-left"
                   style={{ background: 'var(--color-accent)' }}
                 />
-                <p
+                <motion.p
+                  initial={{ opacity: 0, scale: 0.7 }}
+                  whileInView={{ opacity: 1, scale: 1 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.6, delay: 0.55, ease: [0.34, 1.56, 0.64, 1] }}
                   className="text-4xl font-bold tracking-tight"
                   style={{ color: 'var(--color-text-primary)' }}
                 >
                   EP
-                </p>
-                <div
-                  className="w-20 h-px"
+                </motion.p>
+                <motion.div
+                  initial={{ scaleX: 0 }}
+                  whileInView={{ scaleX: 1 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.7, delay: 0.6, ease }}
+                  className="w-20 h-px origin-right"
                   style={{ background: 'var(--color-accent)' }}
                 />
-                <p
+                <motion.p
+                  initial={{ opacity: 0, y: 8 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.5, delay: 0.7, ease }}
                   className="text-xs tracking-widest uppercase text-center"
                   style={{ color: 'var(--color-text-secondary)' }}
                 >
                   Lead Fullstack<br />Engineer
-                </p>
+                </motion.p>
               </div>
 
               {/* Corner accents */}
-              <div
+              <motion.div
+                initial={{ opacity: 0, scale: 0, transformOrigin: 'top left' }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.4, delay: 0.75, ease }}
                 className="absolute top-0 left-0 w-8 h-8 border-t-2 border-l-2"
                 style={{ borderColor: 'var(--color-accent)' }}
               />
-              <div
+              <motion.div
+                initial={{ opacity: 0, scale: 0, transformOrigin: 'bottom right' }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.4, delay: 0.8, ease }}
                 className="absolute bottom-0 right-0 w-8 h-8 border-b-2 border-r-2"
                 style={{ borderColor: 'var(--color-accent)' }}
               />
             </div>
-          </motion.div>
+          </SlideIn>
 
-          {/* RIGHT: Text (60% = 3/5 cols) */}
+          {/* RIGHT: Text */}
           <div className="lg:col-span-3">
-            <motion.p
-              initial={{ opacity: 0, y: 10 }}
-              animate={isInView ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.6, delay: 0.1, ease }}
-              className="text-xs font-semibold tracking-[0.3em] uppercase mb-6"
-              style={{ color: 'var(--color-accent)' }}
-            >
-              About Me
-            </motion.p>
-
-            <motion.h2
-              initial={{ opacity: 0, y: 20 }}
-              animate={isInView ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.7, delay: 0.15, ease }}
-              className="text-3xl md:text-4xl font-bold tracking-tight mb-6 leading-snug"
-              style={{ color: 'var(--color-text-primary)' }}
-            >
-              Building software that<br />
-              <span style={{ color: 'var(--color-accent)' }}>feels inevitable.</span>
-            </motion.h2>
-
-            <motion.div
-              initial={{ opacity: 0 }}
-              animate={isInView ? { opacity: 1 } : {}}
-              transition={{ duration: 0.8, delay: 0.25, ease }}
-              className="space-y-4 mb-10 text-base leading-relaxed"
-              style={{ color: 'var(--color-text-secondary)' }}
-            >
-              <p>
-                I&apos;m a Lead Fullstack Engineer with a focus on shipping polished, high-performance
-                web products. I care deeply about developer experience, type safety, and the kind
-                of UI details users feel but never consciously notice.
+            <FadeUp delay={0.05} distance={12}>
+              <p
+                className="text-xs font-semibold tracking-[0.3em] uppercase mb-4"
+                style={{ color: 'var(--color-accent)' }}
+              >
+                About Me
               </p>
-              <p>
-                When I&apos;m not building, I&apos;m thinking about distributed systems, design systems,
-                and how to make teams move faster without sacrificing quality.
-              </p>
-            </motion.div>
+            </FadeUp>
 
-            {/* Personal info grid */}
-            <motion.div
-              initial={{ opacity: 0, y: 10 }}
-              animate={isInView ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.7, delay: 0.35, ease }}
+            {/* Word-by-word heading reveal */}
+            <div className="mb-6">
+              <WordReveal
+                text="Building software that"
+                as="h2"
+                delay={0.08}
+                stagger={0.07}
+                className="text-3xl md:text-4xl font-bold tracking-tight leading-snug"
+                wordClassName="text-3xl md:text-4xl font-bold"
+              />
+              <WordReveal
+                text="feels inevitable."
+                as="h2"
+                delay={0.28}
+                stagger={0.08}
+                className="text-3xl md:text-4xl font-bold tracking-tight leading-snug"
+                wordClassName="text-3xl md:text-4xl font-bold"
+                style={{ color: 'var(--color-accent)' } as React.CSSProperties}
+              />
+            </div>
+
+            <FadeUp delay={0.2} duration={0.9}>
+              <div
+                className="space-y-4 mb-10 text-base leading-relaxed"
+                style={{ color: 'var(--color-text-secondary)' }}
+              >
+                <p>
+                  I&apos;m a Lead Fullstack Engineer with a focus on shipping polished, high-performance
+                  web products. I care deeply about developer experience, type safety, and the kind
+                  of UI details users feel but never consciously notice.
+                </p>
+                <p>
+                  When I&apos;m not building, I&apos;m thinking about distributed systems, design systems,
+                  and how to make teams move faster without sacrificing quality.
+                </p>
+              </div>
+            </FadeUp>
+
+            {/* Info grid — staggered */}
+            <StaggerContainer
               className="grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-4 mb-10"
+              stagger={0.07}
+              delayChildren={0.25}
             >
               {info.map(({ label, value }) => (
-                <div key={label} className="flex flex-col gap-0.5">
+                <StaggerItem key={label} className="flex flex-col gap-0.5">
                   <span
                     className="text-[11px] font-semibold tracking-[0.15em] uppercase"
                     style={{ color: 'var(--color-accent)' }}
@@ -157,26 +183,38 @@ export function AboutSection() {
                   >
                     {value}
                   </span>
-                </div>
+                </StaggerItem>
               ))}
-            </motion.div>
+            </StaggerContainer>
 
-            {/* Skill chips */}
-            <motion.div
-              initial={{ opacity: 0, y: 10 }}
-              animate={isInView ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.7, delay: 0.45, ease }}
-            >
+            {/* Skill chips — pop in with stagger */}
+            <FadeUp delay={0.35}>
               <p
                 className="text-xs font-semibold tracking-[0.2em] uppercase mb-4"
                 style={{ color: 'var(--color-text-secondary)' }}
               >
                 Core Stack
               </p>
-              <div className="flex flex-wrap gap-2">
+              <motion.div
+                className="flex flex-wrap gap-2"
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true, margin: '-10%' }}
+                variants={{
+                  hidden: {},
+                  visible: { transition: { staggerChildren: 0.04, delayChildren: 0.4 } },
+                }}
+              >
                 {skills.map((skill) => (
-                  <span
+                  <motion.span
                     key={skill}
+                    variants={{
+                      hidden: { opacity: 0, scale: 0.8, y: 8 },
+                      visible: {
+                        opacity: 1, scale: 1, y: 0,
+                        transition: { duration: 0.4, ease: [0.34, 1.56, 0.64, 1] },
+                      },
+                    }}
                     className="px-3 py-1 text-xs font-medium rounded-full"
                     style={{
                       background: 'rgba(255, 184, 0, 0.08)',
@@ -185,10 +223,10 @@ export function AboutSection() {
                     }}
                   >
                     {skill}
-                  </span>
+                  </motion.span>
                 ))}
-              </div>
-            </motion.div>
+              </motion.div>
+            </FadeUp>
           </div>
         </div>
       </div>

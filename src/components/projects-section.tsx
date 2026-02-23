@@ -7,6 +7,7 @@ import { FeaturedBento } from './featured-bento'
 import { ProjectFilterBar } from './project-filter-bar'
 import { AllProjectsMasonry } from './all-projects-masonry'
 import { ProjectDialog } from './project-dialog'
+import { WordReveal, FadeUp, RevealLine } from './scroll-reveal'
 
 const ease = [0.25, 0.4, 0.25, 1] as [number, number, number, number]
 
@@ -24,9 +25,13 @@ export function ProjectsSection() {
         className="relative py-24 md:py-36 overflow-hidden"
         style={{ zIndex: 1 }}
       >
-        {/* Watermark */}
-        <div
+        {/* Watermark — drifts in from left */}
+        <motion.div
           aria-hidden
+          initial={{ opacity: 0, x: -60 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          viewport={{ once: true, margin: '-20%' }}
+          transition={{ duration: 1.6, ease }}
           className="absolute inset-0 flex items-center justify-end pr-8 pointer-events-none select-none"
         >
           <span
@@ -35,80 +40,70 @@ export function ProjectsSection() {
           >
             WORK
           </span>
-        </div>
+        </motion.div>
 
         <div className="relative z-10 max-w-7xl mx-auto px-8 md:px-16">
           {/* Section header */}
           <div className="mb-16">
-            <motion.p
-              initial={{ opacity: 0, y: 10 }}
-              animate={isInView ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.6, ease }}
-              className="text-xs font-semibold tracking-[0.3em] uppercase mb-4"
-              style={{ color: 'var(--color-accent)' }}
-            >
-              Projects
-            </motion.p>
-            <motion.h2
-              initial={{ opacity: 0, y: 20 }}
-              animate={isInView ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.7, delay: 0.1, ease }}
+            <FadeUp delay={0.05} distance={12}>
+              <p
+                className="text-xs font-semibold tracking-[0.3em] uppercase mb-4"
+                style={{ color: 'var(--color-accent)' }}
+              >
+                Projects
+              </p>
+            </FadeUp>
+            <WordReveal
+              text="Work that ships."
+              as="h2"
+              delay={0.1}
+              stagger={0.08}
               className="text-3xl md:text-4xl font-bold tracking-tight leading-snug"
-              style={{ color: 'var(--color-text-primary)' }}
-            >
-              Work that{' '}
-              <span style={{ color: 'var(--color-accent)' }}>ships.</span>
-            </motion.h2>
+              wordClassName="text-3xl md:text-4xl font-bold"
+            />
           </div>
 
           {/* Featured bento */}
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={isInView ? { opacity: 1 } : {}}
-            transition={{ duration: 0.6, delay: 0.15, ease }}
-            className="mb-16"
-          >
+          <FadeUp delay={0.15} className="mb-2">
             <p
               className="text-xs font-semibold tracking-[0.2em] uppercase mb-6"
               style={{ color: 'var(--color-text-secondary)' }}
             >
               Featured
             </p>
+          </FadeUp>
+          <motion.div
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            viewport={{ once: true, margin: '-10%' }}
+            transition={{ duration: 0.6, delay: 0.2, ease }}
+            className="mb-16"
+          >
             <FeaturedBento projects={FEATURED} onCardClick={setSelectedProject} />
           </motion.div>
 
           {/* Divider + filter bar */}
-          <motion.div
-            initial={{ opacity: 0, y: 10 }}
-            animate={isInView ? { opacity: 1, y: 0 } : {}}
-            transition={{ duration: 0.6, delay: 0.25, ease }}
-            className="mb-12"
-          >
-            <div
-              className="w-full h-px mb-10"
-              style={{ background: 'rgba(255,255,255,0.06)' }}
-            />
-            <ProjectFilterBar active={filter} onChange={setFilter} />
-          </motion.div>
+          <div className="mb-12">
+            <RevealLine delay={0.1} className="w-full mb-10" color="rgba(255,255,255,0.06)" />
+            <FadeUp delay={0.15}>
+              <ProjectFilterBar active={filter} onChange={setFilter} />
+            </FadeUp>
+          </div>
 
           {/* All projects masonry */}
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={isInView ? { opacity: 1 } : {}}
-            transition={{ duration: 0.6, delay: 0.3, ease }}
-          >
+          <FadeUp delay={0.1}>
             <p
               className="text-xs font-semibold tracking-[0.2em] uppercase mb-6"
               style={{ color: 'var(--color-text-secondary)' }}
             >
               All Projects
             </p>
-            <AllProjectsMasonry
-              projects={ALL_PROJECTS}
-              filter={filter}
-              onCardClick={setSelectedProject}
-            />
-          </motion.div>
+          </FadeUp>
+          <AllProjectsMasonry
+            projects={ALL_PROJECTS}
+            filter={filter}
+            onCardClick={setSelectedProject}
+          />
         </div>
       </section>
 
