@@ -2,16 +2,64 @@
 
 import { motion } from 'motion/react'
 import { Github, Linkedin } from 'lucide-react'
-import { RevealLine, FadeUp, StaggerContainer, StaggerItem } from './scroll-reveal'
+import { StaggerContainer, StaggerItem } from './scroll-reveal'
+
+const RIBBON_ITEMS = [
+  'Available for Work',
+  '✦',
+  'Lead Fullstack Engineer',
+  '✦',
+  'Next.js · React · TypeScript',
+  '✦',
+  'Mexico City, MX',
+  '✦',
+  'Nearshore — North America & Europe',
+  '✦',
+  'Open to Freelance',
+  '✦',
+]
+
+function FooterRibbon() {
+  // Duplicate items so the scroll loop is seamless
+  const items = [...RIBBON_ITEMS, ...RIBBON_ITEMS]
+
+  return (
+    <div
+      className="relative w-full overflow-hidden py-3"
+      style={{ background: 'var(--color-accent)' }}
+    >
+      <motion.div
+        className="flex gap-8 whitespace-nowrap"
+        animate={{ x: ['0%', '-50%'] }}
+        transition={{ duration: 22, ease: 'linear', repeat: Infinity }}
+        style={{ width: 'max-content' }}
+      >
+        {items.map((item, i) => (
+          <span
+            key={i}
+            className="text-xs font-bold tracking-[0.2em] uppercase"
+            style={{ color: 'var(--color-background)' }}
+          >
+            {item}
+          </span>
+        ))}
+      </motion.div>
+    </div>
+  )
+}
 
 export function SiteFooter() {
   const year = new Date().getFullYear()
 
   return (
     <footer
-      className="relative py-12 px-8 md:px-16 overflow-hidden"
+      className="relative overflow-hidden"
       style={{ borderTop: '1px solid rgba(255,255,255,0.06)' }}
     >
+      {/* Gold ribbon */}
+      <FooterRibbon />
+
+      <div className="relative py-12 px-8 md:px-16">
       {/* Watermark — subtle scale-in */}
       <motion.div
         aria-hidden
@@ -28,9 +76,6 @@ export function SiteFooter() {
           EP
         </span>
       </motion.div>
-
-      {/* Top reveal line */}
-      <RevealLine className="absolute top-0 left-0 right-0" color="rgba(255,255,255,0.06)" />
 
       <StaggerContainer
         className="relative z-10 max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-4"
@@ -80,6 +125,7 @@ export function SiteFooter() {
           </p>
         </StaggerItem>
       </StaggerContainer>
+      </div>
     </footer>
   )
 }

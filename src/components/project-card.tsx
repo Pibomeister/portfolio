@@ -32,7 +32,6 @@ export function ProjectCard({ project, onClick, className = '', hero = false }: 
         background: project.accentColor || 'linear-gradient(135deg, #111827 0%, #0b101a 100%)',
         border: '1px solid rgba(255,255,255,0.06)',
         minHeight: hero ? '320px' : '200px',
-        display: 'block',
       }}
     >
       {/* Placeholder image area */}

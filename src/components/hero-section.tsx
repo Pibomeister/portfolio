@@ -2,6 +2,7 @@
 
 import { motion } from 'motion/react'
 import { ArrowRight } from 'lucide-react'
+import { HeroCodeSnippet } from './hero-code-snippet'
 
 const ease = [0.25, 0.4, 0.25, 1] as [number, number, number, number]
 
@@ -101,7 +102,7 @@ export function HeroSection() {
               href="https://github.com/Pibomeister"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 px-6 py-3 text-sm font-semibold rounded-full transition-all duration-200 hover:scale-105"
+              className="inline-flex items-center gap-2 px-6 py-3 text-sm font-semibold rounded-sm transition-all duration-200 hover:scale-105"
               style={{
                 background: 'var(--color-accent)',
                 color: 'var(--color-background)',
@@ -113,7 +114,7 @@ export function HeroSection() {
               href="https://www.linkedin.com/in/eduardo-picazo-enriquez"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 px-6 py-3 text-sm font-semibold rounded-full border transition-all duration-200 hover:scale-105"
+              className="inline-flex items-center gap-2 px-6 py-3 text-sm font-semibold rounded border transition-all duration-200 hover:scale-105"
               style={{
                 borderColor: 'rgba(255,255,255,0.15)',
                 color: 'var(--color-text-primary)',
@@ -125,30 +126,15 @@ export function HeroSection() {
           </motion.div>
         </div>
 
-        {/* RIGHT: Portrait placeholder (swap with Image when photo is ready) */}
+        {/* RIGHT: Code snippet placeholder (swap with <Image> when portrait is ready) */}
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 1.2, delay: 0.3, ease }}
-          className="relative hidden lg:flex items-center justify-center overflow-hidden"
+          className="relative hidden lg:flex items-center justify-center overflow-hidden px-8 xl:px-16"
           style={{ minHeight: '100vh' }}
         >
-          <div
-            className="relative w-full h-full"
-            style={{
-              maskImage: 'linear-gradient(to right, transparent 0%, rgba(0,0,0,0.6) 20%, black 50%, black 70%, transparent 100%)',
-              WebkitMaskImage: 'linear-gradient(to right, transparent 0%, rgba(0,0,0,0.6) 20%, black 50%, black 70%, transparent 100%)',
-            }}
-          >
-            {/* Gradient placeholder — replace inner div with <Image> when portrait.jpg is ready */}
-            <div
-              className="w-full h-full"
-              style={{
-                background: 'linear-gradient(135deg, #1a2035 0%, #0f1520 50%, #0b101a 100%)',
-                minHeight: '100vh',
-              }}
-            />
-          </div>
+          <HeroCodeSnippet />
 
           {/* Subtle vertical accent line */}
           <div

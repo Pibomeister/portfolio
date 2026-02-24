@@ -6,7 +6,7 @@
  */
 
 import { motion, type Variants, type MotionProps } from 'motion/react'
-import { type ReactNode } from 'react'
+import React, { type ReactNode } from 'react'
 
 const ease = [0.25, 0.4, 0.25, 1] as [number, number, number, number]
 
@@ -180,6 +180,7 @@ interface WordRevealProps {
   stagger?: number
   once?: boolean
   as?: 'h1' | 'h2' | 'h3' | 'p' | 'span'
+  style?: React.CSSProperties
 }
 
 export function WordReveal({
@@ -190,6 +191,7 @@ export function WordReveal({
   stagger = 0.06,
   once = true,
   as: Tag = 'h2',
+  style,
 }: WordRevealProps) {
   const words = text.split(' ')
 
@@ -204,7 +206,7 @@ export function WordReveal({
         visible: { transition: { staggerChildren: stagger, delayChildren: delay } },
       }}
     >
-      <Tag className="flex flex-wrap gap-x-[0.3em] gap-y-0">
+      <Tag className="flex flex-wrap gap-x-[0.3em] gap-y-0" style={style}>
         {words.map((word, i) => (
           <motion.span
             key={i}

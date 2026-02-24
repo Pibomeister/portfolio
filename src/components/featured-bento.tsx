@@ -44,12 +44,12 @@ export function FeaturedBento({ projects, onCardClick }: FeaturedBentoProps) {
 
       {second && (
         <motion.div
-          className="md:col-span-1"
+          className="md:col-span-1 flex flex-col"
           initial={{ opacity: 0, y: 20 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.7, delay: 0.08, ease }}
         >
-          <ProjectCard project={second} onClick={onCardClick} />
+          <ProjectCard project={second} onClick={onCardClick} className="flex-1" />
         </motion.div>
       )}
 

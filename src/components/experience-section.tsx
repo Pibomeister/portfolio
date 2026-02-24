@@ -22,23 +22,6 @@ export function ExperienceSection() {
       className="relative py-24 md:py-36 overflow-hidden"
       style={{ zIndex: 1 }}
     >
-      {/* Watermark — drifts in from the right */}
-      <motion.div
-        aria-hidden
-        initial={{ opacity: 0, x: 60 }}
-        whileInView={{ opacity: 1, x: 0 }}
-        viewport={{ once: true, margin: '-20%' }}
-        transition={{ duration: 1.6, ease }}
-        className="absolute inset-0 flex items-center justify-start pl-8 pointer-events-none select-none"
-      >
-        <span
-          className="text-[20vw] font-extrabold leading-none tracking-tighter"
-          style={{ color: 'rgba(255,255,255,0.012)', userSelect: 'none' }}
-        >
-          CV
-        </span>
-      </motion.div>
-
       <div className="relative z-10 max-w-7xl mx-auto px-8 md:px-16">
         {/* Section header */}
         <div className="mb-16">

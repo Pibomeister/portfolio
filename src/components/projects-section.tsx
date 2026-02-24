@@ -25,42 +25,47 @@ export function ProjectsSection() {
         className="relative py-24 md:py-36 overflow-hidden"
         style={{ zIndex: 1 }}
       >
-        {/* Watermark — drifts in from left */}
-        <motion.div
-          aria-hidden
-          initial={{ opacity: 0, x: -60 }}
-          whileInView={{ opacity: 1, x: 0 }}
-          viewport={{ once: true, margin: '-20%' }}
-          transition={{ duration: 1.6, ease }}
-          className="absolute inset-0 flex items-center justify-end pr-8 pointer-events-none select-none"
-        >
-          <span
-            className="text-[20vw] font-extrabold leading-none tracking-tighter"
-            style={{ color: 'rgba(255,255,255,0.012)', userSelect: 'none' }}
-          >
-            WORK
-          </span>
-        </motion.div>
-
         <div className="relative z-10 max-w-7xl mx-auto px-8 md:px-16">
-          {/* Section header */}
-          <div className="mb-16">
-            <FadeUp delay={0.05} distance={12}>
-              <p
-                className="text-xs font-semibold tracking-[0.3em] uppercase mb-4"
+          {/* Section header — editorial counter layout */}
+          <div className="flex items-baseline gap-6 mb-16">
+            {/* Large counter */}
+            <motion.span
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, ease }}
+              aria-hidden
+              className="text-[7rem] md:text-[9rem] font-bold leading-none select-none shrink-0"
+              style={{
+                fontFamily: 'var(--font-display)',
+                color: 'rgba(255, 184, 0, 0.12)',
+                lineHeight: 1,
+              }}
+            >
+              03
+            </motion.span>
+
+            {/* Heading beside it */}
+            <div className="flex flex-col gap-2 pb-2">
+              <motion.p
+                initial={{ opacity: 0 }}
+                whileInView={{ opacity: 1 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: 0.1, ease }}
+                className="text-xs font-semibold tracking-[0.3em] uppercase"
                 style={{ color: 'var(--color-accent)' }}
               >
                 Projects
-              </p>
-            </FadeUp>
-            <WordReveal
-              text="Work that ships."
-              as="h2"
-              delay={0.1}
-              stagger={0.08}
-              className="text-3xl md:text-4xl font-bold tracking-tight leading-snug"
-              wordClassName="text-3xl md:text-4xl font-bold"
-            />
+              </motion.p>
+              <WordReveal
+                text="Work that ships."
+                as="h2"
+                delay={0.15}
+                stagger={0.08}
+                className="text-3xl md:text-4xl font-bold tracking-tight leading-snug"
+                wordClassName="text-3xl md:text-4xl font-bold"
+              />
+            </div>
           </div>
 
           {/* Featured bento */}
