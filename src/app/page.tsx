@@ -3,6 +3,7 @@ import { NavHeader } from '@/components/nav-header'
 import { HeroSection } from '@/components/hero-section'
 import { AboutSection } from '@/components/about-section'
 import { ProjectsSection } from '@/components/projects-section'
+import { OpenSourceSection } from '@/components/open-source-section'
 import { ExperienceSection } from '@/components/experience-section'
 import { SiteFooter } from '@/components/site-footer'
 
@@ -17,6 +18,7 @@ export default function Home() {
       <HeroSection />
       <AboutSection />
       <ProjectsSection />
+      <OpenSourceSection />
       <ExperienceSection />
       <SiteFooter />
     </main>

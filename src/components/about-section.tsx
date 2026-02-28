@@ -1,6 +1,7 @@
 'use client'
 
 import { motion } from 'motion/react'
+import Image from 'next/image'
 import { WordReveal, SlideIn, FadeUp, ScaleIn, StaggerContainer, StaggerItem } from './scroll-reveal'
 
 const skills = [
@@ -49,13 +50,48 @@ export function AboutSection() {
           {/* LEFT: Visual card */}
           <SlideIn from="left" delay={0.1} duration={0.9} className="lg:col-span-2 relative">
             <div
-              className="relative rounded-2xl overflow-hidden aspect-[3/4] max-w-sm mx-auto"
+              className="relative rounded-2xl overflow-hidden aspect-3/4 max-w-sm mx-auto"
               style={{
                 background: 'linear-gradient(135deg, #111827 0%, #0b101a 100%)',
                 border: '1px solid rgba(255,184,0,0.15)',
               }}
             >
-              <div className="absolute inset-0 flex flex-col items-center justify-center gap-4 p-8">
+              <Image
+                src="/headshot-2.png"
+                alt="Portrait of Eduardo Picazo"
+                fill
+                className="object-cover"
+                style={{ objectPosition: 'center 30%' }}
+                sizes="(min-width: 1024px) 22rem, (min-width: 768px) 20rem, 85vw"
+              />
+
+              <div
+                aria-hidden
+                className="absolute inset-0"
+                style={{
+                  background:
+                    'linear-gradient(160deg, color-mix(in srgb, var(--color-background) 75%, transparent) 8%, color-mix(in srgb, var(--color-background) 45%, transparent) 42%, color-mix(in srgb, var(--color-accent) 18%, transparent) 100%)',
+                }}
+              />
+              <div
+                aria-hidden
+                className="absolute inset-0"
+                style={{
+                  background:
+                    'radial-gradient(circle at 50% 35%, color-mix(in srgb, var(--color-background) 12%, transparent) 0%, transparent 55%)',
+                }}
+              />
+
+              <div className="absolute inset-0 flex items-center justify-center p-8">
+                <div
+                  className="w-full max-w-56 rounded-xl px-6 py-7 flex flex-col items-center gap-4 translate-y-17.5 md:translate-y-21.5"
+                  style={{
+                    background: 'color-mix(in srgb, var(--color-background) 65%, transparent)',
+                    border: '1px solid color-mix(in srgb, var(--color-text-primary) 18%, transparent)',
+                    boxShadow: '0 18px 40px rgba(0,0,0,0.45)',
+                    backdropFilter: 'blur(8px)',
+                  }}
+                >
                 <motion.div
                   initial={{ scaleX: 0 }}
                   whileInView={{ scaleX: 1 }}
@@ -92,6 +128,7 @@ export function AboutSection() {
                 >
                   Lead Fullstack<br />Engineer
                 </motion.p>
+                </div>
               </div>
 
               {/* Corner accents */}

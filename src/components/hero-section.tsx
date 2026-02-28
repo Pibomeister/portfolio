@@ -2,7 +2,7 @@
 
 import { motion } from 'motion/react'
 import { ArrowRight } from 'lucide-react'
-import { HeroCodeSnippet } from './hero-code-snippet'
+import Image from 'next/image'
 
 const ease = [0.25, 0.4, 0.25, 1] as [number, number, number, number]
 
@@ -34,7 +34,7 @@ export function HeroSection() {
       <div className="relative z-10 w-full grid grid-cols-1 lg:grid-cols-2 min-h-screen">
 
         {/* LEFT: Text content */}
-        <div className="flex flex-col justify-center px-8 md:px-16 xl:px-24 pt-28 pb-16 lg:pt-0 lg:pb-0">
+        <div className="order-2 lg:order-1 flex flex-col justify-center px-8 md:px-16 xl:px-24 pt-8 pb-16 md:pt-10 lg:pt-0 lg:pb-0">
           {/* Eyebrow */}
           <motion.p
             initial={{ opacity: 0, x: -20 }}
@@ -126,20 +126,36 @@ export function HeroSection() {
           </motion.div>
         </div>
 
-        {/* RIGHT: Code snippet placeholder (swap with <Image> when portrait is ready) */}
+        {/* RIGHT: Headshot */}
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 1.2, delay: 0.3, ease }}
-          className="relative hidden lg:flex items-center justify-center overflow-hidden px-8 xl:px-16"
-          style={{ minHeight: '100vh' }}
+          className="order-1 lg:order-2 relative flex items-center justify-center overflow-hidden px-8 md:px-12 lg:px-8 xl:px-16 pt-28 pb-6 md:pb-10 lg:py-0 min-h-[300px] sm:min-h-[360px] md:min-h-[440px] lg:min-h-screen"
         >
-          <HeroCodeSnippet />
+          <div className="relative w-full max-w-88 md:max-w-md xl:max-w-lg aspect-4/5 rounded-2xl overflow-hidden border border-white/10 shadow-2xl">
+            <Image
+              src="/headshot.png"
+              alt="Portrait of Eduardo Picazo"
+              fill
+              priority
+              className="object-cover"
+              sizes="(min-width: 1280px) 28rem, (min-width: 1024px) 40vw, (min-width: 768px) 24rem, 85vw"
+            />
+            <div
+              aria-hidden
+              className="absolute inset-0"
+              style={{
+                background:
+                  'linear-gradient(to top, rgba(11,11,11,0.35) 0%, rgba(11,11,11,0) 40%)',
+              }}
+            />
+          </div>
 
           {/* Subtle vertical accent line */}
           <div
             aria-hidden
-            className="absolute left-0 top-1/4 bottom-1/4 w-px"
+            className="absolute left-0 top-1/4 bottom-1/4 w-px hidden lg:block"
             style={{ background: 'linear-gradient(to bottom, transparent, var(--color-accent), transparent)' }}
           />
         </motion.div>

@@ -66,7 +66,7 @@ export function FeaturedBento({ projects, onCardClick }: FeaturedBentoProps) {
         </motion.div>
       ))}
 
-      {/* Row 3: 6th card if present, spans full width */}
+      {/* Row 3: 6th card if present (FinLedger), spans full width, 30% taller */}
       {rest[3] && (
         <motion.div
           className="md:col-span-3"
@@ -74,7 +74,7 @@ export function FeaturedBento({ projects, onCardClick }: FeaturedBentoProps) {
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.7, delay: 0.4, ease }}
         >
-          <ProjectCard project={rest[3]} onClick={onCardClick} />
+          <ProjectCard project={rest[3]} onClick={onCardClick} tall />
         </motion.div>
       )}
     </div>

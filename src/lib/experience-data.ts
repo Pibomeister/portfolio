@@ -19,7 +19,7 @@ export const WORK_ENTRIES: WorkEntry[] = [
     id: 'current',
     period: 'Nov 2025 – Present',
     role: 'Lead Frontend Engineer',
-    company: 'Current Role',
+    company: 'Lab49',
     tech: ['React', 'GraphQL', 'Azure AI', 'Azure SQL'],
     current: true,
   },
