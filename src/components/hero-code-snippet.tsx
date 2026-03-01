@@ -133,7 +133,7 @@ export function HeroCodeSnippet() {
         aria-hidden
         className="absolute -inset-6 -z-10 rounded-3xl"
         style={{
-          background: 'radial-gradient(ellipse at 60% 40%, rgba(255,184,0,0.08) 0%, transparent 65%)',
+          background: 'radial-gradient(ellipse at 60% 40%, rgba(255,212,59,0.12) 0%, rgba(232,114,12,0.04) 40%, transparent 70%)',
         }}
       />
 
@@ -144,7 +144,7 @@ export function HeroCodeSnippet() {
           background: 'rgba(13, 18, 30, 0.92)',
           backdropFilter: 'blur(20px)',
           border: '1px solid rgba(255,255,255,0.07)',
-          boxShadow: '0 40px 80px rgba(0,0,0,0.6), 0 0 0 1px rgba(255,184,0,0.04), inset 0 1px 0 rgba(255,255,255,0.04)',
+          boxShadow: '0 40px 80px rgba(0,0,0,0.6), 0 0 0 1px rgba(255,212,59,0.04), inset 0 1px 0 rgba(255,255,255,0.04)',
         }}
       >
         {/* Title bar */}

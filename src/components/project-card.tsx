@@ -120,7 +120,7 @@ export function ProjectCard({ project, onClick, className = '', hero = false, ta
       {/* Hover accent overlay */}
       <div
         className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300"
-        style={{ background: 'rgba(255,184,0,0.04)' }}
+        style={{ background: 'rgba(255,212,59,0.04)' }}
       />
 
       {/* Content — unified backdrop, width fits content */}
@@ -161,9 +161,9 @@ export function ProjectCard({ project, onClick, className = '', hero = false, ta
                 key={t}
                 className="text-[10px] font-semibold tracking-[0.1em] uppercase px-2 py-0.5 rounded-full"
                 style={{
-                  background: 'rgba(255,184,0,0.15)',
+                  background: 'rgba(255,212,59,0.15)',
                   color: 'var(--color-accent)',
-                  border: '1px solid rgba(255,184,0,0.25)',
+                  border: '1px solid rgba(255,212,59,0.25)',
                 }}
               >
                 {TECH_LABELS[t] ?? t}

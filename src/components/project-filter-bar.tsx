@@ -26,6 +26,7 @@ export function ProjectFilterBar({ active, onChange }: ProjectFilterBarProps) {
               border: isActive
                 ? '1px solid var(--color-accent)'
                 : '1px solid rgba(255,255,255,0.08)',
+              boxShadow: isActive ? '0 0 12px rgba(255,212,59,0.35)' : 'none',
             }}
           >
             {f.label}

@@ -13,6 +13,34 @@ export function HeroSection() {
       className="relative min-h-screen flex items-center overflow-hidden"
       style={{ zIndex: 1 }}
     >
+      {/* Planet background */}
+      <div aria-hidden className="absolute inset-0 z-0">
+        <Image
+          src="/planet-background.jpg"
+          alt=""
+          fill
+          priority
+          className="object-cover"
+          sizes="100vw"
+        />
+        {/* Dark overlay for text legibility */}
+        <div
+          className="absolute inset-0"
+          style={{
+            background:
+              'linear-gradient(to right, rgba(11,16,26,0.82) 0%, rgba(11,16,26,0.45) 50%, rgba(11,16,26,0.15) 100%)',
+          }}
+        />
+        {/* Bottom fade into page background */}
+        <div
+          className="absolute inset-x-0 bottom-0 h-48"
+          style={{
+            background:
+              'linear-gradient(to top, var(--color-background) 0%, transparent 100%)',
+          }}
+        />
+      </div>
+
       {/* Faint "EP" watermark */}
       <div
         aria-hidden
@@ -41,7 +69,7 @@ export function HeroSection() {
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.7, delay: 0.1, ease }}
             className="text-xs font-semibold tracking-[0.3em] uppercase mb-6"
-            style={{ color: 'var(--color-accent)' }}
+            style={{ color: 'var(--color-accent)', textShadow: '0 0 12px rgba(255,212,59,0.3)' }}
           >
             Portfolio
           </motion.p>
@@ -56,7 +84,7 @@ export function HeroSection() {
           >
             Eduardo
             <br />
-            <span style={{ color: 'var(--color-accent)' }}>Picazo</span>
+            <span style={{ color: 'var(--color-accent)', textShadow: '0 0 20px rgba(255,212,59,0.5), 0 0 60px rgba(255,212,59,0.2)' }}>Picazo</span>
           </motion.h1>
 
           {/* Title */}
@@ -76,7 +104,7 @@ export function HeroSection() {
             animate={{ scaleX: 1 }}
             transition={{ duration: 0.6, delay: 0.45, ease }}
             className="w-16 h-px mb-8 origin-left"
-            style={{ background: 'var(--color-accent)' }}
+            style={{ background: 'var(--color-accent)', boxShadow: '0 0 8px rgba(255,212,59,0.5), 0 0 20px rgba(255,212,59,0.2)' }}
           />
 
           {/* Description */}
@@ -106,6 +134,7 @@ export function HeroSection() {
               style={{
                 background: 'var(--color-accent)',
                 color: 'var(--color-background)',
+                boxShadow: '0 0 16px rgba(255,212,59,0.4), 0 0 40px rgba(255,212,59,0.15)',
               }}
             >
               View Work <ArrowRight className="w-4 h-4" />
@@ -174,7 +203,7 @@ export function HeroSection() {
           animate={{ y: [0, 6, 0] }}
           transition={{ duration: 1.5, repeat: Infinity, ease: 'easeInOut' }}
           className="w-px h-8"
-          style={{ background: 'var(--color-accent)' }}
+          style={{ background: 'var(--color-accent)', boxShadow: '0 0 6px rgba(255,212,59,0.4)' }}
         />
       </motion.div>
     </section>

@@ -59,7 +59,7 @@ export function ParticleBackground() {
         ctx.beginPath()
         ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2)
         ctx.fillStyle = p.gold
-          ? `rgba(255, 184, 0, ${p.opacity})`
+          ? `rgba(255, 212, 59, ${p.opacity})`
           : `rgba(255, 255, 255, ${p.opacity})`
         ctx.fill()
       }

@@ -8,6 +8,7 @@ import { ProjectFilterBar } from './project-filter-bar'
 import { AllProjectsMasonry } from './all-projects-masonry'
 import { ProjectDialog } from './project-dialog'
 import { WordReveal, FadeUp, RevealLine } from './scroll-reveal'
+import EnergyBeam from './ui/energy-beam'
 
 const ease = [0.25, 0.4, 0.25, 1] as [number, number, number, number]
 
@@ -38,7 +39,7 @@ export function ProjectsSection() {
               className="text-[7rem] md:text-[9rem] font-bold leading-none select-none shrink-0"
               style={{
                 fontFamily: 'var(--font-display)',
-                color: 'rgba(255, 184, 0, 0.12)',
+                color: 'rgba(255, 212, 59, 0.12)',
                 lineHeight: 1,
               }}
             >
@@ -86,7 +87,12 @@ export function ProjectsSection() {
           >
             <FeaturedBento projects={FEATURED} onCardClick={setSelectedProject} />
           </motion.div>
+        </div>
 
+        {/* Energy beam — full-bleed, parallax background layer */}
+        <EnergyBeam className="h-[28rem] md:h-[36rem]" />
+
+        <div className="relative z-10 max-w-7xl mx-auto px-8 md:px-16">
           {/* Divider + filter bar */}
           <div className="mb-12">
             <RevealLine delay={0.1} className="w-full mb-10" color="rgba(255,255,255,0.06)" />

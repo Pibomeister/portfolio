@@ -3,8 +3,9 @@
 @theme {
   --color-background: #0b101a;
   --color-surface: #111827;
-  --color-accent: #ffb800;
-  --color-accent-dim: #cc9200;
+  --color-accent: #FFD43B;
+  --color-accent-dim: #E8720C;
+  --color-accent-glow: #FFD43B;
   --color-text-primary: #ffffff;
   --color-text-secondary: #8a95a5;
   --color-border: rgba(255, 255, 255, 0.08);

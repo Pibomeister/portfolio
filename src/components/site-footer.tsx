@@ -26,7 +26,7 @@ function FooterRibbon() {
   return (
     <div
       className="relative w-full overflow-hidden py-3"
-      style={{ background: 'var(--color-accent)' }}
+      style={{ background: 'var(--color-accent)', boxShadow: '0 0 20px rgba(255,212,59,0.3), 0 -4px 16px rgba(255,212,59,0.15)' }}
     >
       <motion.div
         className="flex gap-8 whitespace-nowrap"

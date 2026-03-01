@@ -64,7 +64,8 @@ export function ExperienceSection() {
             className="absolute left-0 top-2 bottom-0 w-px origin-top"
             style={{
               background:
-                'linear-gradient(to bottom, var(--color-accent), rgba(255,184,0,0.1))',
+                'linear-gradient(to bottom, var(--color-accent), rgba(255,212,59,0.1))',
+              boxShadow: '0 0 6px rgba(255,212,59,0.3)',
             }}
           />
 

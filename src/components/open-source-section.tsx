@@ -255,6 +255,7 @@ export function OpenSourceSection() {
                         style={{
                           background: 'var(--color-accent)',
                           color: 'var(--color-background)',
+                          boxShadow: '0 0 16px rgba(255,212,59,0.4), 0 0 40px rgba(255,212,59,0.15)',
                         }}
                       >
                         GitHub Repo <ExternalLink className="w-4 h-4" />

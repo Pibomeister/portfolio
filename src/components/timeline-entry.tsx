@@ -26,7 +26,7 @@ export function TimelineEntry({ entry, index, isInView }: TimelineEntryProps) {
           background: entry.current ? 'var(--color-accent)' : 'var(--color-surface)',
           border: '2px solid var(--color-accent)',
           transform: 'translateX(-5px)',
-          boxShadow: entry.current ? '0 0 10px rgba(255,184,0,0.6)' : 'none',
+          boxShadow: entry.current ? '0 0 8px rgba(255,212,59,0.6), 0 0 20px rgba(255,212,59,0.3), 0 0 40px rgba(255,212,59,0.1)' : 'none',
         }}
       />
 
@@ -42,9 +42,9 @@ export function TimelineEntry({ entry, index, isInView }: TimelineEntryProps) {
           <span
             className="text-[10px] font-bold tracking-widest uppercase px-2 py-0.5 rounded-full"
             style={{
-              background: 'rgba(255,184,0,0.15)',
+              background: 'rgba(255,212,59,0.15)',
               color: 'var(--color-accent)',
-              border: '1px solid rgba(255,184,0,0.3)',
+              border: '1px solid rgba(255,212,59,0.3)',
             }}
           >
             Now
@@ -75,8 +75,8 @@ export function TimelineEntry({ entry, index, isInView }: TimelineEntryProps) {
             key={t}
             className="px-2.5 py-0.5 text-[11px] font-medium rounded-full"
             style={{
-              background: 'rgba(255,184,0,0.06)',
-              border: '1px solid rgba(255,184,0,0.15)',
+              background: 'rgba(255,212,59,0.06)',
+              border: '1px solid rgba(255,212,59,0.15)',
               color: 'var(--color-text-secondary)',
             }}
           >
