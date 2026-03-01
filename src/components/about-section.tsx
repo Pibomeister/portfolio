@@ -50,10 +50,10 @@ export function AboutSection() {
           {/* LEFT: Visual card */}
           <SlideIn from="left" delay={0.1} duration={0.9} className="lg:col-span-2 relative">
             <div
-              className="relative rounded-2xl overflow-hidden aspect-3/4 max-w-sm mx-auto"
+              className="relative rounded-2xl overflow-hidden aspect-9/16 max-w-sm mx-auto"
               style={{
                 background: 'linear-gradient(135deg, #111827 0%, #0b101a 100%)',
-                border: '1px solid rgba(255,184,0,0.15)',
+                border: '1px solid rgba(255,212,59,0.15)',
               }}
             >
               <Image
@@ -138,7 +138,7 @@ export function AboutSection() {
                 viewport={{ once: true }}
                 transition={{ duration: 0.4, delay: 0.75, ease }}
                 className="absolute top-0 left-0 w-8 h-8 border-t-2 border-l-2"
-                style={{ borderColor: 'var(--color-accent)' }}
+                style={{ borderColor: 'var(--color-accent)', filter: 'drop-shadow(0 0 4px rgba(255,212,59,0.4))' }}
               />
               <motion.div
                 initial={{ opacity: 0, scale: 0, transformOrigin: 'bottom right' }}
@@ -146,7 +146,7 @@ export function AboutSection() {
                 viewport={{ once: true }}
                 transition={{ duration: 0.4, delay: 0.8, ease }}
                 className="absolute bottom-0 right-0 w-8 h-8 border-b-2 border-r-2"
-                style={{ borderColor: 'var(--color-accent)' }}
+                style={{ borderColor: 'var(--color-accent)', filter: 'drop-shadow(0 0 4px rgba(255,212,59,0.4))' }}
               />
             </div>
           </SlideIn>
@@ -254,8 +254,8 @@ export function AboutSection() {
                     }}
                     className="px-3 py-1 text-xs font-medium rounded-full"
                     style={{
-                      background: 'rgba(255, 184, 0, 0.08)',
-                      border: '1px solid rgba(255, 184, 0, 0.2)',
+                      background: 'rgba(255, 212, 59, 0.08)',
+                      border: '1px solid rgba(255, 212, 59, 0.2)',
                       color: 'var(--color-text-secondary)',
                     }}
                   >

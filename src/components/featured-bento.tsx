@@ -4,6 +4,7 @@ import { motion, useInView } from 'motion/react'
 import { useRef } from 'react'
 import { Project } from '@/lib/projects-data'
 import { ProjectCard } from './project-card'
+import { GlowingEffect } from './ui/glowing-effect'
 
 const ease = [0.25, 0.4, 0.25, 1] as [number, number, number, number]
 
@@ -38,7 +39,10 @@ export function FeaturedBento({ projects, onCardClick }: FeaturedBentoProps) {
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.7, ease }}
         >
-          <ProjectCard project={hero} onClick={onCardClick} hero />
+          <div className="relative h-full rounded-2xl">
+            <GlowingEffect spread={40} glow disabled={false} proximity={64} inactiveZone={0.01} borderWidth={3} />
+            <ProjectCard project={hero} onClick={onCardClick} hero />
+          </div>
         </motion.div>
       )}
 
@@ -49,7 +53,10 @@ export function FeaturedBento({ projects, onCardClick }: FeaturedBentoProps) {
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.7, delay: 0.08, ease }}
         >
-          <ProjectCard project={second} onClick={onCardClick} className="flex-1" />
+          <div className="relative flex flex-col h-full rounded-2xl">
+            <GlowingEffect spread={40} glow disabled={false} proximity={64} inactiveZone={0.01} borderWidth={3} />
+            <ProjectCard project={second} onClick={onCardClick} className="flex-1" />
+          </div>
         </motion.div>
       )}
 
@@ -62,7 +69,10 @@ export function FeaturedBento({ projects, onCardClick }: FeaturedBentoProps) {
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.7, delay: 0.16 + i * 0.08, ease }}
         >
-          <ProjectCard project={project} onClick={onCardClick} />
+          <div className="relative h-full rounded-2xl">
+            <GlowingEffect spread={40} glow disabled={false} proximity={64} inactiveZone={0.01} borderWidth={3} />
+            <ProjectCard project={project} onClick={onCardClick} />
+          </div>
         </motion.div>
       ))}
 
@@ -74,7 +84,10 @@ export function FeaturedBento({ projects, onCardClick }: FeaturedBentoProps) {
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.7, delay: 0.4, ease }}
         >
-          <ProjectCard project={rest[3]} onClick={onCardClick} tall />
+          <div className="relative h-full rounded-2xl">
+            <GlowingEffect spread={40} glow disabled={false} proximity={64} inactiveZone={0.01} borderWidth={3} />
+            <ProjectCard project={rest[3]} onClick={onCardClick} tall />
+          </div>
         </motion.div>
       )}
     </div>

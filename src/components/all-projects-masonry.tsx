@@ -4,6 +4,7 @@ import { motion, AnimatePresence, useInView } from 'motion/react'
 import { useRef } from 'react'
 import { Project, TechFilter } from '@/lib/projects-data'
 import { ProjectCard } from './project-card'
+import { GlowingEffect } from './ui/glowing-effect'
 
 interface AllProjectsMasonryProps {
   projects: Project[]
@@ -40,7 +41,10 @@ export function AllProjectsMasonry({ projects, filter, onCardClick }: AllProject
               transition={{ duration: 0.5, delay: i * 0.05, ease }}
               style={{ breakInside: 'avoid', marginBottom: '1rem', display: 'block' }}
             >
-              <ProjectCard project={project} onClick={onCardClick} />
+              <div className="relative h-full rounded-2xl">
+                <GlowingEffect spread={40} glow disabled={false} proximity={64} inactiveZone={0.01} borderWidth={3} />
+                <ProjectCard project={project} onClick={onCardClick} />
+              </div>
             </motion.div>
           ))}
         </AnimatePresence>
