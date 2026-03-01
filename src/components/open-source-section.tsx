@@ -311,7 +311,7 @@ export function OpenSourceSection() {
               initial={{ opacity: 0, scale: 0.92, y: 20 }}
               animate={{ opacity: 1, scale: 1, y: 0 }}
               exit={{ opacity: 0, scale: 0.94, y: 10 }}
-              transition={{ duration: 0.3, ease }}
+              transition={{ duration: 0.3, ease: 'easeInOut' }}
               onClick={event => event.stopPropagation()}
               className="relative w-full max-w-3xl max-h-[90vh] overflow-y-auto rounded-2xl"
               style={{
