@@ -23,13 +23,7 @@ export function AllProjectsMasonry({ projects, filter, onCardClick }: AllProject
 
   return (
     <div ref={ref}>
-      <style>{`
-        .masonry-grid { column-count: 1; column-gap: 1rem; }
-        @media (min-width: 640px) { .masonry-grid { column-count: 2; } }
-        @media (min-width: 1024px) { .masonry-grid { column-count: 3; } }
-      `}</style>
-
-      <div className="masonry-grid">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
         <AnimatePresence mode="popLayout">
           {filtered.map((project, i) => (
             <motion.div
@@ -39,12 +33,10 @@ export function AllProjectsMasonry({ projects, filter, onCardClick }: AllProject
               animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
               exit={{ opacity: 0, scale: 0.95 }}
               transition={{ duration: 0.5, delay: i * 0.05, ease }}
-              style={{ breakInside: 'avoid', marginBottom: '1rem', display: 'block' }}
+              className="relative rounded-2xl"
             >
-              <div className="relative h-full rounded-2xl">
-                <GlowingEffect spread={40} glow disabled={false} proximity={64} inactiveZone={0.01} borderWidth={3} />
-                <ProjectCard project={project} onClick={onCardClick} />
-              </div>
+              <GlowingEffect spread={40} glow disabled={false} proximity={64} inactiveZone={0.01} borderWidth={3} />
+              <ProjectCard project={project} onClick={onCardClick} />
             </motion.div>
           ))}
         </AnimatePresence>

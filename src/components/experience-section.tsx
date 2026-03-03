@@ -6,6 +6,7 @@ import { WORK_ENTRIES, ACHIEVEMENTS } from '@/lib/experience-data'
 import { TimelineEntry } from './timeline-entry'
 import { AchievementCard } from './achievement-card'
 import { WordReveal, FadeUp, StaggerContainer, StaggerItem } from './scroll-reveal'
+import { HeroFuturisticWrapper } from './ui/hero-futuristic-wrapper'
 
 const ease = [0.25, 0.4, 0.25, 1] as [number, number, number, number]
 
@@ -54,29 +55,39 @@ export function ExperienceSection() {
           </div>
         </div>
 
-        {/* Timeline */}
-        <div ref={timelineRef} className="relative mb-24 max-w-2xl">
-          {/* Animated vertical gold line */}
-          <motion.div
-            initial={{ scaleY: 0 }}
-            animate={timelineInView ? { scaleY: 1 } : {}}
-            transition={{ duration: 1.4, ease: [0.25, 0.4, 0.25, 1] }}
-            className="absolute left-0 top-2 bottom-0 w-px origin-top"
-            style={{
-              background:
-                'linear-gradient(to bottom, var(--color-accent), rgba(255,212,59,0.1))',
-              boxShadow: '0 0 6px rgba(255,212,59,0.3)',
-            }}
-          />
-
-          {WORK_ENTRIES.map((entry, i) => (
-            <TimelineEntry
-              key={entry.id}
-              entry={entry}
-              index={i}
-              isInView={timelineInView}
+        {/* Timeline + 3D Scene two-column layout */}
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-24">
+          {/* Left column: Timeline */}
+          <div ref={timelineRef} className="relative">
+            {/* Animated vertical gold line */}
+            <motion.div
+              initial={{ scaleY: 0 }}
+              animate={timelineInView ? { scaleY: 1 } : {}}
+              transition={{ duration: 1.4, ease: [0.25, 0.4, 0.25, 1] }}
+              className="absolute left-0 top-2 bottom-0 w-px origin-top"
+              style={{
+                background:
+                  'linear-gradient(to bottom, var(--color-accent), rgba(255,212,59,0.1))',
+                boxShadow: '0 0 6px rgba(255,212,59,0.3)',
+              }}
             />
-          ))}
+
+            {WORK_ENTRIES.map((entry, i) => (
+              <TimelineEntry
+                key={entry.id}
+                entry={entry}
+                index={i}
+                isInView={timelineInView}
+              />
+            ))}
+          </div>
+
+          {/* Right column: 3D Depth-Parallax Scene */}
+          <div className="hidden lg:block">
+            <div className="sticky top-24 aspect-[4/5]">
+              <HeroFuturisticWrapper />
+            </div>
+          </div>
         </div>
 
         {/* Achievements grid */}

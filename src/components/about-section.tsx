@@ -84,7 +84,7 @@ export function AboutSection() {
 
               <div className="absolute inset-0 flex items-center justify-center p-8">
                 <div
-                  className="w-full max-w-56 rounded-xl px-6 py-7 flex flex-col items-center gap-4 translate-y-17.5 md:translate-y-21.5"
+                  className="w-full max-w-56 rounded-xl px-6 py-7 flex flex-col items-center gap-4 translate-y-44 md:translate-y-52"
                   style={{
                     background: 'color-mix(in srgb, var(--color-background) 65%, transparent)',
                     border: '1px solid color-mix(in srgb, var(--color-text-primary) 18%, transparent)',
