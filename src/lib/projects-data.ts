@@ -32,26 +32,20 @@ export const FILTERS: { id: TechFilter | 'all'; label: string }[] = [
 export const PROJECTS: Project[] = [
   // --- Featured (6) ---
   {
-    id: 'fluxkeep',
-    name: 'Fluxkeep',
+    id: 'el-abogado-ai',
+    name: 'El Abogado AI',
     description:
-      'Privacy-first financial dashboard that turns PDF bank statements into organized insights. No bank credentials needed — AI-powered categorization, subscription detection, and cash flow visualization across all your accounts.',
+      'Intelligent workspace for legal professionals to review, analyze, and edit documents at superhuman speed. Natural language queries, automated risk detection, and tracked edits — built with enterprise-grade security for law firms.',
     tech: ['nextjs', 'react'],
-    techStack: ['Next.js', 'TypeScript', 'tRPC', 'PostgreSQL', 'Redis', 'AWS'],
-    url: 'https://www.fluxkeep.com',
-    images: ['/fluxkeep.png'],
-    logo: '/fluxkeep.svg',
-    colorPalette: [
-      '#0B0C0F', // Primary background (near-black charcoal)
-      '#14161B', // Card background
-      '#1B1E24', // Secondary surface
-      '#A3D977', // Primary green (income / positive)
-      '#8EDC5B', // Bright green (progress)
-      '#B8E986', // Soft lime (AI badge)
-      '#5FAE3A', // Dark green (hover)
-    ],
+    techStack: ['Next.js', 'TypeScript', 'OpenAI', 'LangChain', 'Supabase'],
+    url: 'https://www.elabogado.ai',
+    images: ['/el-abogado-narrow.jpeg'],
+    imageWide: '/el-abogado-wide.jpeg',
+    logo: '/elabogado.webp',
+    logoWide: true,
+    colorPalette: ['#030B0E', '#062226', '#1CC7C9', '#3EDFD8', '#E9F2F3'],
     featured: true,
-    accentColor: 'linear-gradient(135deg, #0B0C0F 0%, #14161B 50%, #1B1E24 100%)',
+    accentColor: 'linear-gradient(135deg, #0f1820 0%, #081018 100%)',
   },
   {
     id: 'storefront-pro',
@@ -85,6 +79,28 @@ export const PROJECTS: Project[] = [
     accentColor: 'linear-gradient(135deg, #1a2520 0%, #0f1a15 100%)',
   },
   {
+    id: 'fluxkeep',
+    name: 'Fluxkeep',
+    description:
+      'Privacy-first financial dashboard that turns PDF bank statements into organized insights. No bank credentials needed — AI-powered categorization, subscription detection, and cash flow visualization across all your accounts.',
+    tech: ['nextjs', 'react'],
+    techStack: ['Next.js', 'TypeScript', 'tRPC', 'PostgreSQL', 'Redis', 'AWS'],
+    url: 'https://www.fluxkeep.com',
+    images: ['/fluxkeep.png'],
+    logo: '/fluxkeep.svg',
+    colorPalette: [
+      '#0B0C0F', // Primary background (near-black charcoal)
+      '#14161B', // Card background
+      '#1B1E24', // Secondary surface
+      '#A3D977', // Primary green (income / positive)
+      '#8EDC5B', // Bright green (progress)
+      '#B8E986', // Soft lime (AI badge)
+      '#5FAE3A', // Dark green (hover)
+    ],
+    featured: true,
+    accentColor: 'linear-gradient(135deg, #0B0C0F 0%, #14161B 50%, #1B1E24 100%)',
+  },
+  {
     id: 'designops',
     name: 'Vonal',
     description:
@@ -114,22 +130,6 @@ export const PROJECTS: Project[] = [
     lightenDialogBackground: true,
     featured: true,
     accentColor: 'linear-gradient(135deg, #1a1010 0%, #120808 100%)',
-  },
-  {
-    id: 'el-abogado-ai',
-    name: 'El Abogado AI',
-    description:
-      'Intelligent workspace for legal professionals to review, analyze, and edit documents at superhuman speed. Natural language queries, automated risk detection, and tracked edits — built with enterprise-grade security for law firms.',
-    tech: ['nextjs', 'react'],
-    techStack: ['Next.js', 'TypeScript', 'OpenAI', 'LangChain', 'Supabase'],
-    url: 'https://www.elabogado.ai',
-    images: ['/el-abogado-narrow.jpeg'],
-    imageWide: '/el-abogado-wide.jpeg',
-    logo: '/elabogado.webp',
-    logoWide: true,
-    colorPalette: ['#030B0E', '#062226', '#1CC7C9', '#3EDFD8', '#E9F2F3'],
-    featured: true,
-    accentColor: 'linear-gradient(135deg, #0f1820 0%, #081018 100%)',
   },
 
   // --- Flutter ---

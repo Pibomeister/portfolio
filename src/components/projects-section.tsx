@@ -59,7 +59,7 @@ export function ProjectsSection() {
                 Projects
               </motion.p>
               <WordReveal
-                text="Work that ships."
+                text="AI products, shipped."
                 as="h2"
                 delay={0.15}
                 stagger={0.08}

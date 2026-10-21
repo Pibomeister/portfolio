@@ -5,14 +5,14 @@ import Image from 'next/image'
 import { WordReveal, SlideIn, FadeUp, ScaleIn, StaggerContainer, StaggerItem } from './scroll-reveal'
 
 const skills = [
-  'TypeScript', 'React', 'Next.js', 'Node.js',
-  'PostgreSQL', 'Supabase', 'Docker', 'AWS',
+  'TypeScript', 'React', 'Next.js', 'Node.js', 'Python',
+  'OpenAI', 'LangChain', 'Supabase', 'PostgreSQL', 'AWS',
   'GraphQL', 'tRPC', 'Tailwind CSS', 'Figma',
 ]
 
 const info = [
   { label: 'Experience', value: '10+ Years' },
-  { label: 'Clients', value: '30+ Clients' },
+  { label: 'Focus', value: 'AI-Native Products' },
   { label: 'Languages', value: 'Spanish, English, German' },
   { label: 'Location', value: 'Mexico City, MX' },
   { label: 'Availability', value: 'Nearshore — North America & Europe' },
@@ -126,7 +126,7 @@ export function AboutSection() {
                   className="text-xs tracking-widest uppercase text-center"
                   style={{ color: 'var(--color-text-secondary)' }}
                 >
-                  Lead Fullstack<br />Engineer
+                  AI Product<br />Engineer
                 </motion.p>
                 </div>
               </div>
@@ -165,7 +165,7 @@ export function AboutSection() {
             {/* Word-by-word heading reveal */}
             <div className="mb-6">
               <WordReveal
-                text="Building software that"
+                text="From fullstack craft"
                 as="h2"
                 delay={0.08}
                 stagger={0.07}
@@ -173,7 +173,7 @@ export function AboutSection() {
                 wordClassName="text-3xl md:text-4xl font-bold"
               />
               <WordReveal
-                text="feels inevitable."
+                text="to AI product."
                 as="h2"
                 delay={0.28}
                 stagger={0.08}
@@ -189,13 +189,16 @@ export function AboutSection() {
                 style={{ color: 'var(--color-text-secondary)' }}
               >
                 <p>
-                  I&apos;m a Lead Fullstack Engineer with a focus on shipping polished, high-performance
-                  web products. I care deeply about developer experience, type safety, and the kind
-                  of UI details users feel but never consciously notice.
+                  I&apos;m a Forward Deployed Engineer and AI Product Engineer with 10+ years shipping
+                  production web products. I embed with teams to turn ambiguous AI opportunities into
+                  shipped features: agent orchestration, LLM pipelines, retrieval systems, and the
+                  interfaces that make them usable.
                 </p>
                 <p>
-                  When I&apos;m not building, I&apos;m thinking about distributed systems, design systems,
-                  and how to make teams move faster without sacrificing quality.
+                  My background is fullstack — React, Next.js, Node.js, TypeScript, and cloud
+                  infrastructure — but my focus today is on the product surface where AI meets users.
+                  I care about type safety, design systems, and the UI details that make complex
+                  systems feel simple.
                 </p>
               </div>
             </FadeUp>

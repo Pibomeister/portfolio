@@ -36,7 +36,7 @@ export function ExperienceSection() {
           </FadeUp>
           <div>
             <WordReveal
-              text="Where I've"
+              text="Embedded in teams"
               as="h2"
               delay={0.1}
               stagger={0.08}
@@ -44,7 +44,7 @@ export function ExperienceSection() {
               wordClassName="text-3xl md:text-4xl font-bold"
             />
             <WordReveal
-              text="built things."
+              text="that ship."
               as="h2"
               delay={0.22}
               stagger={0.08}

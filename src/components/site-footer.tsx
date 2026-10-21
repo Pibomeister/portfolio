@@ -7,9 +7,9 @@ import { StaggerContainer, StaggerItem } from './scroll-reveal'
 const RIBBON_ITEMS = [
   'Available for Work',
   '✦',
-  'Lead Fullstack Engineer',
+  'Forward Deployed Engineer / AI Product Engineer',
   '✦',
-  'Next.js · React · TypeScript',
+  'Next.js · React · TypeScript · AI SDK',
   '✦',
   'Mexico City, MX',
   '✦',
@@ -88,7 +88,7 @@ export function SiteFooter() {
             style={{ color: 'var(--color-text-secondary)' }}
           >
             Eduardo Picazo —{' '}
-            <span style={{ color: 'var(--color-text-primary)' }}>Lead Fullstack Engineer</span>
+            <span style={{ color: 'var(--color-text-primary)' }}>Forward Deployed Engineer / AI Product Engineer</span>
           </p>
         </StaggerItem>
 
