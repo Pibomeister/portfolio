@@ -21,7 +21,12 @@ export function ParticleBackground() {
     const ctx = canvas.getContext('2d')
     if (!ctx) return
 
-    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches
+    const motionPreference = window.matchMedia('(prefers-reduced-motion: reduce)')
+    let prefersReducedMotion = motionPreference.matches
+    const updateMotionPreference = (event: MediaQueryListEvent) => {
+      prefersReducedMotion = event.matches
+    }
+    motionPreference.addEventListener('change', updateMotionPreference)
     let animationId: number
     const particles: Particle[] = []
     const COUNT = 60
@@ -75,6 +80,7 @@ export function ParticleBackground() {
     return () => {
       cancelAnimationFrame(animationId)
       window.removeEventListener('resize', resize)
+      motionPreference.removeEventListener('change', updateMotionPreference)
     }
   }, [])
 

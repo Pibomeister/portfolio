@@ -16,7 +16,6 @@ type Repo = {
   image?: string
   icon: typeof Bot
   language: string
-  license: string
   tags: string[]
 }
 
@@ -31,7 +30,6 @@ const REPOS: Repo[] = [
     url: 'https://github.com/Pibomeister/agent-kit',
     icon: Bot,
     language: 'TypeScript',
-    license: 'MIT',
     tags: ['TypeScript', 'Agents', 'CLI'],
   },
   {
@@ -44,7 +42,6 @@ const REPOS: Repo[] = [
     url: 'https://github.com/Pibomeister/firstmate',
     icon: Workflow,
     language: 'Shell',
-    license: 'MIT',
     tags: ['Orchestration', 'Multi-Agent', 'CLI'],
   },
   {
@@ -60,7 +57,6 @@ const REPOS: Repo[] = [
     image: '/github-project.png',
     icon: Terminal,
     language: 'Next.js',
-    license: 'MIT',
     tags: ['Next.js 16', 'AI SDK v6', 'RAG'],
   },
 ]
@@ -143,15 +139,7 @@ function RepoCard({ repo, index }: { repo: Repo; index: number }) {
       {/* Content */}
       <div className="flex flex-col flex-1 p-6">
         <div className="mb-4">
-          <div className="flex items-center gap-2 mb-2">
-            <h3 className="text-xl md:text-2xl font-bold leading-tight">{repo.name}</h3>
-            <span
-              className="text-[10px] font-medium tracking-wider uppercase px-2 py-0.5 rounded-full"
-              style={{ background: 'rgba(255,255,255,0.08)', color: 'rgba(255,255,255,0.6)' }}
-            >
-              {repo.license}
-            </span>
-          </div>
+          <h3 className="text-xl md:text-2xl font-bold leading-tight mb-2">{repo.name}</h3>
           <p
             className="inline-flex items-center gap-1.5 font-[family-name:var(--font-mono)] text-[11px] tracking-[0.04em] mb-3"
             style={{ color: 'rgba(255,255,255,0.5)' }}

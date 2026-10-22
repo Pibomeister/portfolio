@@ -12,7 +12,7 @@ const skills = [
 
 const info = [
   { label: 'Experience', value: '10+ Years' },
-  { label: 'Focus', value: 'AI-Native Products' },
+  { label: 'Clients', value: '30+ Clients' },
   { label: 'Languages', value: 'Spanish, English, German' },
   { label: 'Location', value: 'Mexico City, MX' },
   { label: 'Availability', value: 'Nearshore — North America & Europe' },
