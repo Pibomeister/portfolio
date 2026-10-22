@@ -46,7 +46,7 @@ export function NavHeader() {
         >
           Experience
         </a>
-        <div className="flex items-center gap-4 pl-4" style={{ borderLeft: '1px solid rgba(255,255,255,0.1)' }}>
+        <div className="flex items-center gap-4 md:pl-4 md:border-l md:border-white/10">
           <a
             href="https://github.com/Pibomeister"
             target="_blank"
