@@ -2,7 +2,7 @@
 
 import { motion } from 'motion/react'
 import Image from 'next/image'
-import { WordReveal, SlideIn, FadeUp, ScaleIn, StaggerContainer, StaggerItem } from './scroll-reveal'
+import { WordReveal, SlideIn, FadeUp, StaggerContainer, StaggerItem } from './scroll-reveal'
 
 const skills = [
   'TypeScript', 'React', 'Next.js', 'Node.js', 'Python',

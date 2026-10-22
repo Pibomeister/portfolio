@@ -5,10 +5,8 @@ import { useRef } from 'react'
 import { WORK_ENTRIES, ACHIEVEMENTS } from '@/lib/experience-data'
 import { TimelineEntry } from './timeline-entry'
 import { AchievementCard } from './achievement-card'
-import { WordReveal, FadeUp, StaggerContainer, StaggerItem } from './scroll-reveal'
+import { WordReveal, FadeUp } from './scroll-reveal'
 import { HeroFuturisticWrapper } from './ui/hero-futuristic-wrapper'
-
-const ease = [0.25, 0.4, 0.25, 1] as [number, number, number, number]
 
 export function ExperienceSection() {
   const timelineRef = useRef<HTMLDivElement>(null)

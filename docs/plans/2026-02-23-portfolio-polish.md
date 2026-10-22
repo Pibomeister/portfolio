@@ -6,7 +6,7 @@
 
 **Architecture:** All changes are isolated to existing component files plus layout.tsx and globals.css. No new dependencies except Space Grotesk Google Font. The code snippet component is new but self-contained.
 
-**Tech Stack:** Next.js 15, Tailwind CSS v4, motion/react (Framer Motion), TypeScript
+**Tech Stack:** Next.js 16, Tailwind CSS v4, motion/react (Framer Motion), TypeScript
 
 ---
 
@@ -18,43 +18,11 @@
 
 **Step 1: Add Space Grotesk import to layout.tsx**
 
-```tsx
-import { Plus_Jakarta_Sans, Space_Grotesk } from 'next/font/google'
+See [src/app/layout.tsx](../../src/app/layout.tsx) for the current font configuration and root font variables.
 
-const jakarta = Plus_Jakarta_Sans({
-  subsets: ['latin'],
-  variable: '--font-jakarta',
-  display: 'swap',
-  weight: ['300', '400', '500', '600', '700', '800'],
-})
+**Step 2: Font tokens in globals.css**
 
-const grotesk = Space_Grotesk({
-  subsets: ['latin'],
-  variable: '--font-grotesk',
-  display: 'swap',
-  weight: ['300', '400', '500', '600', '700'],
-})
-
-// In RootLayout, apply both variables:
-// <html lang="en" className={`${jakarta.variable} ${grotesk.variable}`}>
-```
-
-**Step 2: Add display font token to globals.css**
-
-```css
-@theme {
-  --color-background: #0b101a;
-  --color-surface: #111827;
-  --color-accent: #ffb800;
-  --color-accent-dim: #cc9200;
-  --color-text-primary: #ffffff;
-  --color-text-secondary: #8a95a5;
-  --color-border: rgba(255, 255, 255, 0.08);
-
-  --font-sans: var(--font-jakarta);
-  --font-display: var(--font-grotesk);
-}
-```
+See [src/app/globals.css](../../src/app/globals.css) for the current typography tokens.
 
 **Step 3: Apply display font to h1/h2 globally in globals.css**
 
@@ -98,7 +66,7 @@ body::after {
 
 **Step 1: Change primary CTA from rounded-full to rounded-sm**
 
-Find the gold "View Work" button:
+Find the gold primary CTA:
 ```tsx
 className="inline-flex items-center gap-2 px-6 py-3 text-sm font-semibold rounded-full ..."
 ```
@@ -107,7 +75,7 @@ Change to:
 className="inline-flex items-center gap-2 px-6 py-3 text-sm font-semibold rounded-sm ..."
 ```
 
-**Step 2: Change secondary "Connect" button from rounded-full to rounded**
+**Step 2: Change secondary CTA from rounded-full to rounded**
 
 ```tsx
 className="inline-flex items-center gap-2 px-6 py-3 text-sm font-semibold rounded border ..."
@@ -140,53 +108,7 @@ Keep watermarks only in hero-section.tsx (EP) and about-section.tsx (ABOUT).
 
 **Step 1: Replace the standard header with an editorial counter layout**
 
-Remove the current:
-```tsx
-<motion.p className="text-xs font-semibold tracking-[0.3em] uppercase ...">Projects</motion.p>
-<WordReveal text="Work I'm proud of." ... />
-```
-
-Replace with:
-```tsx
-<div className="flex items-baseline gap-6 mb-16">
-  {/* Large counter */}
-  <motion.span
-    initial={{ opacity: 0, y: 20 }}
-    whileInView={{ opacity: 1, y: 0 }}
-    viewport={{ once: true }}
-    transition={{ duration: 0.6 }}
-    className="text-[8rem] font-bold leading-none select-none"
-    style={{
-      fontFamily: 'var(--font-display)',
-      color: 'rgba(255, 184, 0, 0.15)',
-      lineHeight: 1,
-    }}
-  >
-    03
-  </motion.span>
-
-  {/* Heading beside it */}
-  <div className="flex flex-col gap-2">
-    <motion.p
-      initial={{ opacity: 0 }}
-      whileInView={{ opacity: 1 }}
-      viewport={{ once: true }}
-      transition={{ duration: 0.5, delay: 0.1 }}
-      className="text-xs font-semibold tracking-[0.3em] uppercase"
-      style={{ color: 'var(--color-accent)' }}
-    >
-      Projects
-    </motion.p>
-    <WordReveal
-      text="Work I'm proud of."
-      className="text-4xl md:text-5xl font-bold tracking-tight"
-      delay={0.15}
-    />
-  </div>
-</div>
-```
-
-Note: Section number `03` because: 01 = About, 02 = Experience (or re-order as needed).
+Keep the large counter beside the heading. See [src/components/projects-section.tsx](../../src/components/projects-section.tsx) for the current section copy, counter, and layout.
 
 ---
 
