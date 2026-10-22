@@ -68,10 +68,10 @@ export function HeroSection() {
             initial={{ opacity: 0, x: -20 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.7, delay: 0.1, ease }}
-            className="text-xs font-semibold tracking-[0.3em] uppercase mb-6"
+            className="text-[11px] md:text-xs font-semibold tracking-[0.25em] uppercase mb-6"
             style={{ color: 'var(--color-accent)', textShadow: '0 0 12px rgba(255,212,59,0.3)' }}
           >
-            Portfolio
+            <span className="font-[family-name:var(--font-mono)] opacity-70">&gt;</span> Forward Deployed Engineer
           </motion.p>
 
           {/* Name */}
@@ -95,7 +95,7 @@ export function HeroSection() {
             className="text-lg md:text-xl font-medium mb-8"
             style={{ color: 'var(--color-text-secondary)' }}
           >
-            Lead Fullstack Engineer
+            AI Product Engineer
           </motion.p>
 
           {/* Divider */}
@@ -115,8 +115,8 @@ export function HeroSection() {
             className="text-base leading-relaxed mb-10 max-w-md"
             style={{ color: 'var(--color-text-secondary)' }}
           >
-            Crafting high-performance web experiences at scale. Passionate about
-            developer tooling, elegant architectures, and products that feel inevitable.
+            I embed with teams to ship AI-native products — from agent orchestration
+            and LLM pipelines to the interfaces that make them usable.
           </motion.p>
 
           {/* CTAs */}
@@ -137,7 +137,7 @@ export function HeroSection() {
                 boxShadow: '0 0 16px rgba(255,212,59,0.4), 0 0 40px rgba(255,212,59,0.15)',
               }}
             >
-              View Work <ArrowRight className="w-4 h-4" />
+              View GitHub <ArrowRight className="w-4 h-4" />
             </a>
             <a
               href="https://www.linkedin.com/in/eduardo-picazo-enriquez"
@@ -150,7 +150,7 @@ export function HeroSection() {
                 background: 'rgba(255,255,255,0.04)',
               }}
             >
-              Connect
+              Get in touch
             </a>
           </motion.div>
         </div>

@@ -12,6 +12,7 @@
 
   --font-sans: var(--font-jakarta);
   --font-display: var(--font-grotesk);
+  --font-mono: var(--font-mono-family);
 }
 
 @layer base {

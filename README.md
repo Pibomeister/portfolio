@@ -1,4 +1,8 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Eduardo Picazo's Portfolio
+
+Personal portfolio for Eduardo Picazo, Forward Deployed Engineer / AI Product Engineer, built with [Next.js](https://nextjs.org).
+
+The site showcases AI products, open-source work, and professional experience. The desktop navigation links to those sections; GitHub and LinkedIn links remain available on smaller screens. Background particles freeze when the system's reduced-motion preference is enabled, including when it changes while the page is open.
 
 ## Getting Started
 
@@ -16,9 +20,9 @@ bun dev
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+You can start editing the page by modifying `src/app/page.tsx`. The page auto-updates as you edit the file.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to optimize and load its fonts. See [the layout](src/app/layout.tsx) for font families and [the theme](src/app/globals.css) for typography tokens.
 
 ## Learn More
 

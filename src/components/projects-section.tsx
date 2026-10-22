@@ -14,7 +14,7 @@ const ease = [0.25, 0.4, 0.25, 1] as [number, number, number, number]
 
 export function ProjectsSection() {
   const ref = useRef<HTMLElement>(null)
-  const isInView = useInView(ref, { once: true, margin: '-10%' })
+  useInView(ref, { once: true, margin: '-10%' })
   const [filter, setFilter] = useState<TechFilter | 'all'>('all')
   const [selectedProject, setSelectedProject] = useState<Project | null>(null)
 
@@ -59,7 +59,7 @@ export function ProjectsSection() {
                 Projects
               </motion.p>
               <WordReveal
-                text="Work that ships."
+                text="AI products, shipped."
                 as="h2"
                 delay={0.15}
                 stagger={0.08}

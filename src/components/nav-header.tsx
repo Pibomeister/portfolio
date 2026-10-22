@@ -18,35 +18,58 @@ export function NavHeader() {
     >
       <Link
         href="/"
-        className="text-sm font-semibold tracking-[0.2em] uppercase transition-colors"
+        className="text-sm font-semibold tracking-[0.2em] uppercase transition-colors hover:text-white"
         style={{ color: 'var(--color-text-secondary)' }}
       >
         EP
       </Link>
 
-      <nav className="flex items-center gap-4" aria-label="Social links">
+      <nav className="flex items-center gap-6" aria-label="Primary navigation">
         <a
-          href="https://github.com/Pibomeister"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="flex items-center gap-2 text-sm transition-colors hover:text-white"
+          href="#projects"
+          className="hidden md:block text-sm transition-colors hover:text-white"
           style={{ color: 'var(--color-text-secondary)' }}
-          aria-label="GitHub profile"
         >
-          <Github className="w-4 h-4" />
-          <span className="hidden sm:inline">GitHub</span>
+          Projects
         </a>
         <a
-          href="https://www.linkedin.com/in/eduardo-picazo-enriquez"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="flex items-center gap-2 text-sm transition-colors hover:text-white"
+          href="#open-source"
+          className="hidden md:block text-sm transition-colors hover:text-white"
           style={{ color: 'var(--color-text-secondary)' }}
-          aria-label="LinkedIn profile"
         >
-          <Linkedin className="w-4 h-4" />
-          <span className="hidden sm:inline">LinkedIn</span>
+          Open Source
         </a>
+        <a
+          href="#experience"
+          className="hidden md:block text-sm transition-colors hover:text-white"
+          style={{ color: 'var(--color-text-secondary)' }}
+        >
+          Experience
+        </a>
+        <div className="flex items-center gap-4 md:pl-4 md:border-l md:border-white/10">
+          <a
+            href="https://github.com/Pibomeister"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex items-center gap-2 text-sm transition-colors hover:text-white"
+            style={{ color: 'var(--color-text-secondary)' }}
+            aria-label="GitHub profile"
+          >
+            <Github className="w-4 h-4" />
+            <span className="hidden sm:inline">GitHub</span>
+          </a>
+          <a
+            href="https://www.linkedin.com/in/eduardo-picazo-enriquez"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex items-center gap-2 text-sm transition-colors hover:text-white"
+            style={{ color: 'var(--color-text-secondary)' }}
+            aria-label="LinkedIn profile"
+          >
+            <Linkedin className="w-4 h-4" />
+            <span className="hidden sm:inline">LinkedIn</span>
+          </a>
+        </div>
       </nav>
     </motion.header>
   )

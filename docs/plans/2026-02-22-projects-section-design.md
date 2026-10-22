@@ -6,17 +6,15 @@ A full projects section below the About section, consisting of three parts: Feat
 
 ## Layout Flow
 ```
-[ Section Header: "Projects" / "Work that ships." ]
-[ Featured Bento Grid — 4 cards, asymmetric ]
+[ Section Header — see src/components/projects-section.tsx ]
+[ Featured Bento Grid — asymmetric; entries from src/lib/projects-data.ts ]
 [ Filter Bar — All / React / Next.js / React Native / Flutter ]
 [ All Projects Masonry — filtered by selected tech ]
 ```
 
 ## Featured Bento Grid
-- 4 cards in asymmetric layout:
-  - Card 1: col-span-2 (hero), full bleed image, tall
-  - Cards 2–4: single column, standard height
-- Each card: placeholder image with dark gradient overlay at bottom
+- For the current card layout, see [FeaturedBento](../../src/components/featured-bento.tsx).
+- Each card: image with dark gradient overlay at bottom
 - Overlay contains: project name + tech stack icons
 - Hover: slight scale-up + brighter overlay
 - Gold border-left accent on hero card
@@ -71,9 +69,8 @@ type Project = {
 - `all-projects-masonry.tsx` — filtered masonry grid
 - `project-card.tsx` — shared card (used in both bento and masonry)
 - `project-dialog.tsx` — modal with carousel
-- `lib/projects-data.ts` — static data file with placeholder projects
+- `lib/projects-data.ts` — authoritative project data
 
-## Placeholder Data
-- 4 featured + 8 all-projects entries (placeholder names/descriptions)
-- All images: gradient placeholder divs (no real images yet)
-- Each project tagged with one or more tech filters
+## Project Data
+
+[src/lib/projects-data.ts](../../src/lib/projects-data.ts) owns the project entries, featured selection, display order, and image paths.

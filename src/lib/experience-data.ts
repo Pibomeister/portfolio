@@ -69,6 +69,13 @@ export const WORK_ENTRIES: WorkEntry[] = [
 
 export const ACHIEVEMENTS: Achievement[] = [
   {
+    id: 'ai-products',
+    iconName: 'Sparkles',
+    title: 'AI-Native Products',
+    description:
+      'Shipped multiple production products powered by LLMs, computer vision, and agentic workflows across legal tech, consumer apps, and fintech.',
+  },
+  {
     id: 'healthcare',
     iconName: 'Heart',
     title: 'Scalable Healthcare',
@@ -81,13 +88,6 @@ export const ACHIEVEMENTS: Achievement[] = [
     title: 'Fintech & Compliance',
     description:
       'Owned full-stack SPV platform implementation including KYC and compliance features; participated in architecture panels for best practices.',
-  },
-  {
-    id: 'ai',
-    iconName: 'Sparkles',
-    title: 'Strategic AI Integration',
-    description:
-      'Pioneered AI venture integration into fintech platforms, leveraging emerging LLM technologies for business strategy.',
   },
   {
     id: 'founding',

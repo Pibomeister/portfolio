@@ -5,10 +5,8 @@ import { useRef } from 'react'
 import { WORK_ENTRIES, ACHIEVEMENTS } from '@/lib/experience-data'
 import { TimelineEntry } from './timeline-entry'
 import { AchievementCard } from './achievement-card'
-import { WordReveal, FadeUp, StaggerContainer, StaggerItem } from './scroll-reveal'
+import { WordReveal, FadeUp } from './scroll-reveal'
 import { HeroFuturisticWrapper } from './ui/hero-futuristic-wrapper'
-
-const ease = [0.25, 0.4, 0.25, 1] as [number, number, number, number]
 
 export function ExperienceSection() {
   const timelineRef = useRef<HTMLDivElement>(null)
@@ -36,7 +34,7 @@ export function ExperienceSection() {
           </FadeUp>
           <div>
             <WordReveal
-              text="Where I've"
+              text="Embedded in teams"
               as="h2"
               delay={0.1}
               stagger={0.08}
@@ -44,7 +42,7 @@ export function ExperienceSection() {
               wordClassName="text-3xl md:text-4xl font-bold"
             />
             <WordReveal
-              text="built things."
+              text="that ship."
               as="h2"
               delay={0.22}
               stagger={0.08}

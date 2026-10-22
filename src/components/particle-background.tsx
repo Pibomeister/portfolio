@@ -21,6 +21,12 @@ export function ParticleBackground() {
     const ctx = canvas.getContext('2d')
     if (!ctx) return
 
+    const motionPreference = window.matchMedia('(prefers-reduced-motion: reduce)')
+    let prefersReducedMotion = motionPreference.matches
+    const updateMotionPreference = (event: MediaQueryListEvent) => {
+      prefersReducedMotion = event.matches
+    }
+    motionPreference.addEventListener('change', updateMotionPreference)
     let animationId: number
     const particles: Particle[] = []
     const COUNT = 60
@@ -48,13 +54,15 @@ export function ParticleBackground() {
       ctx.clearRect(0, 0, canvas.width, canvas.height)
 
       for (const p of particles) {
-        p.x += p.vx
-        p.y += p.vy
+        if (!prefersReducedMotion) {
+          p.x += p.vx
+          p.y += p.vy
 
-        if (p.x < 0) p.x = canvas.width
-        if (p.x > canvas.width) p.x = 0
-        if (p.y < 0) p.y = canvas.height
-        if (p.y > canvas.height) p.y = 0
+          if (p.x < 0) p.x = canvas.width
+          if (p.x > canvas.width) p.x = 0
+          if (p.y < 0) p.y = canvas.height
+          if (p.y > canvas.height) p.y = 0
+        }
 
         ctx.beginPath()
         ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2)
@@ -72,6 +80,7 @@ export function ParticleBackground() {
     return () => {
       cancelAnimationFrame(animationId)
       window.removeEventListener('resize', resize)
+      motionPreference.removeEventListener('change', updateMotionPreference)
     }
   }, [])
 
